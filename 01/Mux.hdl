@@ -15,8 +15,20 @@ CHIP Mux {
 
     PARTS:
     // Put your code here:
-do not's for a ,b, and sel
-use and statements for the truth chart you can make
+Not(in = a, out = notA );
+Not(in = b, out = notB);
+Not(in = sel, out = notSel);
+And(a = notSel, b = a, out = notSelAnda);
+And(a = notSelAnda, b = notB, out = and1);
+//This line may be completely wrong vvvvvv
+And(a = notSelAnda, b = b, out = and2);
+And(a = sel, b = notA, out = selAndNotA);
+And(a= selAndNotA, b = b, out = and3);
+And(a = sel, b = a, out = selAnda);
+And(a = selAnda, b = b, out = and4);
+Or(a = and1, b = and2, out = or1);
+Or(a = and3, b = and4, out = or2);
+Or(a = or1, b = or2, out = out);
 
 
     }
