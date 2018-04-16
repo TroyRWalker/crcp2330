@@ -13,23 +13,56 @@
 
 // Put your code here.
 
+//@SCREEN
+//D = A
+//@PIXEL
+//M = D - 1
+
+(LOOP)
 @SCREEN
 D = A
 @PIXEL
-M = -1;
-
-(LOOP)
+M = D-1
 @KBD
 D = M;
 @BLACK
-D;JGT
+D;JNE
+
 @WHITE
-0;JMP
+D;JEQ
+
 
 (BLACK)
 @PIXEL
-D = M+1
-@KBD
-D = M
+A = M
+M = -1
+@PIXEL
+M = M + 1
+@24576
+D = A
 @PIXEL
 D = D - M
+@BLACK
+D;JNE
+@LOOP
+0;JMP
+
+
+
+
+(WHITE)
+
+@PIXEL
+A = M
+M = 0
+@PIXEL
+M = M+1
+@24576
+D = A
+@PIXEL
+D = D - M
+@WHITE
+D;JNE
+
+@LOOP
+0;JMP
