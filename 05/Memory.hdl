@@ -18,7 +18,7 @@
  * Access to address>0x6000 is invalid. Access to any address in 
  * the range 0x4000-0x5FFF results in accessing the screen memory 
  * map. Access to address 0x6000 results in accessing the keyboard 
- * memory map. The behavior in these addresses is described in the 
+ * memoroy map. The behavior in these addresses is described in the 
  * Screen and Keyboard chip specifications given in the book.
  */
 
@@ -28,4 +28,11 @@ CHIP Memory {
 
     PARTS:
     // Put your code here:
+    DMux4Way(in = load, sel[0] = address[13], sel[1] = address[14], a = ramOne, b = ramTwo, c = lscreen, d = lkeyboard );
+    Or(a = ramOne, b = ramTwo, out = lRam);
+    RAM16K(in = in, load = lRam, address = address[0..13], out = oRam);
+    Screen(in = in, load = lscreen, address = address[0..12], out = oScreen);	
+    Keyboard(out = oKeyboard);
+    Mux4Way16(a = oRam, b = oRam, c = oScreen, d = oKeyboard, sel[0] = address[13], sel[1] = address[14], out = out);
+    
 }
