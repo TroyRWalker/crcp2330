@@ -1,0 +1,89 @@
+function Cascade.new 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push constant 220
+push constant 234
+push constant 20
+call Player.new 3
+pop this 0
+push pointer 0
+return
+function Cascade.move 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 3
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+call Player.moveLeft 1
+pop temp 0
+label IF_FALSE0
+push this 1
+push constant 4
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 0
+call Player.moveRight 1
+pop temp 0
+label IF_FALSE1
+push constant 10
+call Sys.wait 1
+pop temp 0
+push constant 0
+return
+function Cascade.run 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+label WHILE_EXP0
+push local 1
+not
+not
+if-goto WHILE_END0
+label WHILE_EXP1
+push local 0
+push constant 0
+eq
+not
+if-goto WHILE_END1
+call Keyboard.keyPressed 0
+pop local 0
+push pointer 0
+call Cascade.move 1
+pop temp 0
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 90
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 3
+pop this 1
+push pointer 0
+call Cascade.move 1
+pop temp 0
+label IF_FALSE0
+push local 0
+push constant 130
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 4
+pop this 1
+label IF_FALSE1
+push constant 0
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return

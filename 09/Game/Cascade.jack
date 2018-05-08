@@ -1,0 +1,49 @@
+class Cascade{
+	field Player player;
+	field int toMove;
+
+	constructor Cascade new(){
+		let player = Player.new(220, 234, 20);
+		return this;
+	}
+	method void move() {
+	  if (toMove = 3) {
+	   do player.moveLeft(); 
+	   }
+	   if (toMove = 4) {
+	   do player.moveRight(); 
+	   }
+
+      do Sys.wait(10);  // delays the next movement
+      return;
+	}
+
+	method void run(){
+	var char pressedKey;
+	var boolean exit;
+	let exit = false;
+
+	while(~exit){
+		while( pressedKey = 0){
+		let pressedKey = Keyboard.keyPressed();
+		do move();
+		}
+		if (pressedKey = 90) {
+			let toMove = 3;
+			do move();
+		}
+		if (pressedKey = 130) {
+			let toMove = 4;
+		}
+		/*
+		while(~(pressedKey = 0 )){ 
+			let pressedKey = Keyboard.keyPressed();
+			do move();
+		}
+		*/
+		let pressedKey = 0;
+	}
+	return;
+	}
+
+}

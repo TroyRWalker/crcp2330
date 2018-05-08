@@ -1,0 +1,41 @@
+class Player {
+
+	field int x, y;
+	field int size;
+
+	constructor Player new(int pX, int pY, int pSize){
+	let x = pX;
+	let y = pY;
+	let size = pSize;
+	do draw();
+	return this;
+	}
+
+	method void draw(){
+		do Screen.setColor(true);
+		do Screen.drawRectangle(x, y, x + size, y + size);
+		return;
+	}
+
+	method void moveLeft(){
+		if( x > 1) {
+		do Screen.setColor(false);
+		do Screen.drawRectangle((x + size) - 1, y, x + size, y + size);
+		let x = x - 2;
+		do Screen.setColor(true);
+		do Screen.drawRectangle(x,y,x+1, y + size);
+		}
+		return;
+	}
+	method void moveRight(){
+		if( x > 490) {
+		do Screen.setColor(false);
+		do Screen.drawRectangle((x + size) + 1, y, x + size, y + size);
+		let x = x + 2;
+		do Screen.setColor(true);
+		do Screen.drawRectangle((x + size) -1 ,y,x+ size, y + size);
+		}
+		return;
+	}
+	}
+
