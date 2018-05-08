@@ -24,24 +24,23 @@ class Cascade{
 	let exit = false;
 
 	while(~exit){
+		if( pressedKey = 81){
+		let exit = true;
+		}
 		while( pressedKey = 0){
 		let pressedKey = Keyboard.keyPressed();
 		do move();
 		}
-		if (pressedKey = 90) {
+		if (pressedKey = 130) {
 			let toMove = 3;
 			do move();
 		}
-		if (pressedKey = 130) {
+		if (pressedKey = 132) {
 			let toMove = 4;
-		}
-		/*
-		while(~(pressedKey = 0 )){ 
-			let pressedKey = Keyboard.keyPressed();
 			do move();
 		}
-		*/
 		let pressedKey = 0;
+		let toMove = 0;
 	}
 	return;
 	}

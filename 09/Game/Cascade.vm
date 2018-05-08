@@ -47,6 +47,16 @@ push local 1
 not
 not
 if-goto WHILE_END0
+push local 0
+push constant 81
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+pop local 1
+label IF_FALSE0
 label WHILE_EXP1
 push local 0
 push constant 0
@@ -61,28 +71,33 @@ pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 push local 0
-push constant 90
-eq
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push constant 3
-pop this 1
-push pointer 0
-call Cascade.move 1
-pop temp 0
-label IF_FALSE0
-push local 0
 push constant 130
 eq
 if-goto IF_TRUE1
 goto IF_FALSE1
 label IF_TRUE1
+push constant 3
+pop this 1
+push pointer 0
+call Cascade.move 1
+pop temp 0
+label IF_FALSE1
+push local 0
+push constant 132
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
 push constant 4
 pop this 1
-label IF_FALSE1
+push pointer 0
+call Cascade.move 1
+pop temp 0
+label IF_FALSE2
 push constant 0
 pop local 0
+push constant 0
+pop this 1
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0

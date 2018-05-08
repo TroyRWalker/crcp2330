@@ -1,4 +1,4 @@
-function Player.new 0
+function Rain.new 0
 push constant 3
 call Memory.alloc 1
 pop pointer 0
@@ -9,11 +9,11 @@ pop this 1
 push argument 2
 pop this 2
 push pointer 0
-call Player.draw 1
+call Rain.draw 1
 pop temp 0
 push pointer 0
 return
-function Player.draw 0
+function Rain.draw 0
 push argument 0
 pop pointer 0
 push constant 0
@@ -32,60 +32,13 @@ call Screen.drawRectangle 4
 pop temp 0
 push constant 0
 return
-function Player.moveLeft 0
+function Rain.falling 0
 push argument 0
 pop pointer 0
-push this 0
-push constant 1
-gt
-if-goto IF_TRUE0
-goto IF_FALSE0
-label IF_TRUE0
-push constant 0
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 2
-add
-push constant 1
-sub
-push this 1
-push this 0
-push this 2
-add
 push this 1
 push this 2
 add
-call Screen.drawRectangle 4
-pop temp 0
-push this 0
-push constant 2
-sub
-pop this 0
-push constant 0
-not
-call Screen.setColor 1
-pop temp 0
-push this 0
-push this 1
-push this 0
-push constant 1
-add
-push this 1
-push this 2
-add
-call Screen.drawRectangle 4
-pop temp 0
-label IF_FALSE0
-push constant 0
-return
-function Player.moveRight 0
-push argument 0
-pop pointer 0
-push this 0
-push this 2
-add
-push constant 510
+push constant 254
 lt
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -96,27 +49,27 @@ pop temp 0
 push this 0
 push this 1
 push this 0
-push constant 1
+push this 2
 add
 push this 1
-push this 2
+push constant 1
 add
 call Screen.drawRectangle 4
 pop temp 0
-push this 0
+push this 1
 push constant 2
 add
-pop this 0
+pop this 1
 push constant 0
 not
 call Screen.setColor 1
 pop temp 0
 push this 0
+push this 1
 push this 2
 add
 push constant 1
 sub
-push this 1
 push this 0
 push this 2
 add
@@ -126,5 +79,23 @@ add
 call Screen.drawRectangle 4
 pop temp 0
 label IF_FALSE0
+push constant 0
+return
+function Rain.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 2
+add
+call Screen.drawRectangle 4
+pop temp 0
 push constant 0
 return
