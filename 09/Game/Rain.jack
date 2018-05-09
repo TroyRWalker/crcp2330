@@ -1,13 +1,35 @@
 class Rain{
+	static int speed;
 	field int x, y;
 	field int size;
+	
+	
 
 	constructor Rain new(int pX, int pY, int pSize){
+	let speed = speed;
 	let x = pX;
 	let y = pY;
 	let size = pSize;
 	do draw();
 	return this;
+	}
+
+	method void setSpeed(){
+		let speed = 1;
+		return;
+	}
+	method int getLX(){
+		return x;
+	}
+	method int getRX(){
+		return x + size;
+	}
+	method int getTY(){
+		return y;
+	}
+	
+	method int getBY(){
+		return y + size;
 	}
 
 	method void draw(){
@@ -20,7 +42,7 @@ class Rain{
 		if ((y + size) < 254) {
          do Screen.setColor(false);
          do Screen.drawRectangle(x, y, x + size, y + 1);
-         let y = y + 2;
+         let y = y + speed;
          do Screen.setColor(true);
          do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);
       }
@@ -28,8 +50,14 @@ class Rain{
 	}
 
 	method void erase() {
+		//let speed = speed + 1;
 		do Screen.setColor(false);
 		do Screen.drawRectangle(x, y, x + size, y + size);
+		return;
+	}
+
+	method void dispose() {
+		do Memory.deAlloc(this);
 		return;
 	}
 }
