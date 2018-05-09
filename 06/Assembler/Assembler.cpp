@@ -6,11 +6,13 @@
 using namespace std;
 
 string convertToBinary(int);
+string determineComp(string);
+
 
 
 
 int main(int argc, char* argv[]) {
-  std::cout << "Hello World!\n";
+  //std::cout << "Hello World!\n";
   ifstream inFile(argv[1]);
     //ifstream inFile("MaxL.asm");
 
@@ -73,14 +75,22 @@ int main(int argc, char* argv[]) {
     
   
     }
-    cout << dest;
-    for(int i = indexOfEquals; i < code.size(); i++){
+    //cout << dest;
+    for(int i = indexOfEquals + 1; i < code.size(); i++){
      // cout << i << endl;
       comp += code[i];
+        if(code[i] == 'A'){
+        a = "0";
+    
+  }
+      if(code[i] == 'M'){
+        a = "1";
+    
+  }
     
   
     }
-    cout << comp << endl;
+    //cout << comp << endl;
 
     }else{
     for(int i = 0; i < code.size(); i++){
@@ -96,7 +106,7 @@ int main(int argc, char* argv[]) {
   
     }
 
-    cout << comp;
+    //cout << comp;
 
     for(int i = indexOfJump; i < code.size(); i++){
       //cout << i << endl;
@@ -105,7 +115,7 @@ int main(int argc, char* argv[]) {
   
     }
 
-    cout << jump << endl;
+    //cout << jump << endl;
 }
 
 
@@ -113,7 +123,8 @@ int main(int argc, char* argv[]) {
     //cout << indexOfEquals << endl;
 
 
-
+  //cout << "Comp: "  << determineComp(comp) << endl;
+cout << cCmd << a << determineComp(comp) <<endl;
   }
 
 
@@ -162,5 +173,84 @@ string convertToBinary(int integerNumber){
   }
 
   return binaryNumber;  
+}
+string determineComp(string comp){
+  //cout << "entering comp: " << comp << endl;
+  if(comp == "0"){
+    return "101010";
+  }
+  if(comp == "1"){
+    return "111111";
+  }
+  if(comp == "-1"){
+    return "111010";
+  }
+  if(comp == "D"){
+    return "001100";
+  }
+  if(comp == "A"){
+    return "110000";
+  }
+  if(comp == "M"){
+    return "110000";
+  }
+  if(comp == "!D"){
+    return "001101";
+  }
+  if(comp == "!A"){
+    return "110011";
+  }
+  if(comp == "!M"){
+    return "110011";
+  }
+  if(comp == "D+1"){
+    return "011111";
+  }
+  if(comp == "A+1"){
+    return "110111";
+  }
+  if(comp == "M+1"){
+    return "110111";
+  }
+  if(comp == "D-1"){
+    return "001110";
+  }
+  if(comp == "A-1"){
+    return "110010";
+  }
+  if(comp == "M-1"){
+    return "110010";
+  }
+  if(comp == "D+A"){
+    return "000010";
+  }
+  if(comp == "D+M"){
+    return "000010";
+  }
+  if(comp == "D-A"){
+    return "010011";
+  }
+  if(comp == "D-M"){
+    return "010011";
+  }
+  if(comp == "A-D"){
+    return "000111";
+  }
+  if(comp == "M-D"){
+    return "000111";
+  }
+  if(comp == "D&A"){
+    return "000000";
+  }
+  if(comp == "D&M"){
+    return "000000";
+  }
+  if(comp == "D|A"){
+    return "010101";
+  }
+  if(comp == "D|M"){
+    return "010101";
+  }
+  return "Something went wrong";
 }
 
