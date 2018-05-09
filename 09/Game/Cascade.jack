@@ -1,249 +1,161 @@
 class Cascade{
-	field Player player;
-	field Rain rain1, rain2, rain3, rain4, rain5, rain6;
-	field int toMove;
+field Player player;
+field Rain rain1, rain2, rain3, rain4, rain5;
+field int toMove;
 
-	constructor Cascade new(){
-		let player = Player.new(220, 235, 20);
-		 do createRain();
+constructor Cascade new(){
+let player = Player.new(220, 235, 20);
+do createRain();
 
-		return this;
-	}
+return this;
+}
 
-	method void createRain(){
-		let rain1 = Rain.new(1, 4, 2, 20);
-		let rain2 = Rain.new(100, 4, 2, 20);
-		let rain3 = Rain.new(200, 4,1, 20);
-		let rain4 = Rain.new(300, 4, 2, 20);
-		let rain5 = Rain.new(460, 4, 1, 20);
-		do rain1.setSpeed();
-		return;
+method void createRain(){
+let rain1 = Rain.new(1, 4, 2, 20);
+let rain2 = Rain.new(100, 4, 2, 20);
+let rain3 = Rain.new(200, 4,1, 20);
+let rain4 = Rain.new(300, 4, 2, 20);
+let rain5 = Rain.new(460, 4, 1, 20);
+return;
 
-	}
+}
 
-	method void contact(){
-						//do Output.printString("1");
-
-		//if((player.getLX() - rain1.getRX() ) < 5 ){
-		  if(rain1.getRX() = player.getRX()){
-			//if(rain.get() = player.getTY()){
-				do rain1.erase();
-				do rain1.dispose();
-				let rain1 = Rain.new(1, 4, 2, 20);
+method void contact(){
 
 
-			//}
-		}
-		/*
-		//if((player.getRX() - rain1.getLX() ) < 5 ){
-		if(rain1.getLX() = player.getLX()){
-			//if(rain.getBY() = player.getTY()){
-				//MURRRR
-				do rain1.erase();
-				do rain1.dispose();
-				let rain1 = Rain.new(1, 2, 3, 20);
-				//do Output.printString("Hello world!");
 
-			//}
-		}
-		*/						//do Output.printString("2");
-		
-		if(rain2.getRX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				do rain2.erase();
-				do rain2.dispose();
-				let rain2 = Rain.new(100, 2, 2, 20);
-			//}
-		}
-		/*
-		if(rain2.getLX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				//MURRRR
-				do rain2.erase();
-				do rain2.dispose();
-				let rain2 = Rain.new(100, 2, 20);
-			//}
-								
-
-		}
-		*/
-		//do Output.printString("3");
-
-		if(rain3.getRX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				do rain3.erase();
-				do rain3.dispose();
-				let rain3 = Rain.new(200, 2, 1, 20);
-			//}
-		}
-		/*
-		if(rain3.getLX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				//MURRRR
-				do rain3.erase();
-				do rain3.dispose();
-				let rain3 = Rain.new(200, 2, 20);
-			//}
-							
-
-		}
-		*/
-//do Output.printString("4");
-		if(rain4.getRX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				do rain4.erase();
-				do rain4.dispose();
-				let rain4 = Rain.new(300, 2, 2, 20);
-			//}
-		}
-		/*
-		if(rain4.getLX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				//MURRRR
-				do rain4.erase();
-				do rain4.dispose();
-				let rain4 = Rain.new(300, 2,  20);
-			//}
-								
-
-		}
-		*/
-//do Output.printString("5");
-		if(rain5.getRX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				do rain5.erase();
-				do rain5.dispose();
-				let rain5 = Rain.new(460, 2, 1, 20);
-			//}
-		}
-		/*
-		if(rain5.getLX() = player.getRX()){
-			//if(rain.getBY() = player.getTY()){
-				//MURRRR
-				do rain5.erase();
-				do rain5.dispose();
-				let rain5 = Rain.new(460, 2, 20);
-			//}
-		}
-		*/
-		
-		return;
-	}
-
-	method boolean lose(){
-		if(rain1.getBY() = 254){
-			return true;
-		}
-		if(rain2.getBY() = 254){
-			return true;
-		}
-		if(rain3.getBY() = 254){
-			return true;
-		}
-		if(rain4.getBY() = 254){
-			return true;
-		}
-		if(rain5.getBY() = 254){
-			return true;
-		}
-		return false;
-	}
-	method void move() {
-	  
-	  if (toMove = 1) {
-	   do player.quickMove(1); 
-	   }
-	   if (toMove = 2) {
-	   do player.quickMove(100); 
-
-	   }
-	   if (toMove = 3) {
-	   do player.quickMove(200); 
-
-	   }
-	   if (toMove = 4) {
-	   do player.quickMove(300); 
-
-	   }
-	   if (toMove = 5) {
-	   do player.quickMove(460); 
-
-	   }
+if(rain1.getRX() = player.getRX()){
+do rain1.erase();
+do rain1.dispose();
+let rain1 = Rain.new(1, 4, 2, 20);
 
 
-      do Sys.wait(10);  // delays the next movement
-      return;
-	}
+}
+if(rain2.getRX() = player.getRX()){
+do rain2.erase();
+do rain2.dispose();
+let rain2 = Rain.new(100, 2, 2, 20);
 
-	method void run(){
-	var char pressedKey;
-	var boolean exit;
-	
-	let exit = false;
-	
-	while(~exit){
+}
+if(rain3.getRX() = player.getRX()){
+do rain3.erase();
+do rain3.dispose();
+let rain3 = Rain.new(200, 2, 1, 20);
+}
+if(rain4.getRX() = player.getRX()){
+do rain4.erase();
+do rain4.dispose();
+let rain4 = Rain.new(300, 2, 2, 20);
+}
 
-		do contact();
-		do rain1.falling();
-		do rain2.falling();
-		do rain2.falling();
-		do rain3.falling();
-		do rain4.falling();
-		do rain5.falling();
-		 
-		let pressedKey = Keyboard.keyPressed();
-		//do Output.printInt(rain1.getBY());
-		//do Output.println();
+if(rain5.getRX() = player.getRX()){
+do rain5.erase();
+do rain5.dispose();
+let rain5 = Rain.new(460, 2, 1, 20);
+}
+return;
+}
 
-		
-		
-		
-		//while( pressedKey = 0){
-		//let pressedKey = Keyboard.keyPressed();
-		//do move();
-		//}
-		if (pressedKey = 49) {
-			let toMove = 1;
-			do move();
-			do contact();
-		//do Output.printString("P x : ");
-		//do Output.printInt(player.getRX());
-		//do Output.printString("     R x: " );
-		//do Output.printInt(rain1.getRX());
-		}
-		if (pressedKey = 50) {
-			let toMove = 2;
-			do move();
-			do contact();
-		}
+method boolean lose(){
+if(rain1.getBY() = 254){
+return true;
+}
+if(rain2.getBY() = 254){
+return true;
+}
+if(rain3.getBY() = 254){
+return true;
+}
+if(rain4.getBY() = 254){
+return true;
+}
+if(rain5.getBY() = 254){
+return true;
+}
+return false;
+}
+method void move() {
 
-		if (pressedKey = 51) {
-			let toMove = 3;
-			do move();
-			do contact();
-		}
+if (toMove = 1) {
+do player.quickMove(1); 
+}
+if (toMove = 2) {
+do player.quickMove(100); 
 
-		if (pressedKey = 52) {
-			let toMove = 4;
-			do move();
-			do contact();
-		}
-		if (pressedKey = 53) {
-			let toMove = 5;
-			do move();
-			do contact();
-		}
-		let pressedKey = 0;
-		let toMove = 0;
-		//do contact();
-		let exit = lose();
-		do Sys.wait(10);
+}
+if (toMove = 3) {
+do player.quickMove(200); 
 
-	}
-	do Output.printString("You Lost!");
+}
+if (toMove = 4) {
+do player.quickMove(300); 
 
-	
-	return;
-	}
+}
+if (toMove = 5) {
+do player.quickMove(460); 
+
+}
+
+
+do Sys.wait(10);  
+return;
+}
+
+method void run(){
+var char pressedKey;
+var boolean exit;
+
+let exit = false;
+
+while(~exit){
+
+do contact();
+do rain1.falling();
+do rain2.falling();
+do rain2.falling();
+do rain3.falling();
+do rain4.falling();
+do rain5.falling();
+
+let pressedKey = Keyboard.keyPressed();
+
+if (pressedKey = 49) {
+let toMove = 1;
+do move();
+do contact();
+}
+if (pressedKey = 50) {
+let toMove = 2;
+do move();
+do contact();
+}
+
+if (pressedKey = 51) {
+let toMove = 3;
+do move();
+do contact();
+}
+
+if (pressedKey = 52) {
+let toMove = 4;
+do move();
+do contact();
+}
+if (pressedKey = 53) {
+let toMove = 5;
+do move();
+do contact();
+}
+let pressedKey = 0;
+let toMove = 0;
+let exit = lose();
+do Sys.wait(10);
+
+}
+do Output.printString("You Lost!");
+
+
+return;
+}
 
 }

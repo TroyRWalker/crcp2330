@@ -1,61 +1,39 @@
 class Player {
 
-	field int x, y;
-	field int size;
+field int x, y;
+field int size;
 
-	constructor Player new(int pX, int pY, int pSize){
-	let x = pX;
-	let y = pY;
-	let size = pSize;
-	//do draw();
-	return this;
-	}
+constructor Player new(int pX, int pY, int pSize){
+let x = pX;
+let y = pY;
+let size = pSize;
+return this;
+}
 
-	method int getLX(){
-		return x;
-	}
-	method int getRX(){
-		return x + size;
-	}
-	method int getTY(){
-		return y;
-	}
-	
-	method int getBY(){
-		return y + size;
-	}
+method int getLX(){
+return x;
+}
+method int getRX(){
+return x + size;
+}
+method int getTY(){
+return y;
+}
 
-	method void draw(){
-		do Screen.setColor(true);
-		do Screen.drawRectangle(x, y, x + size, y + size);
-		return;
-	}
+method int getBY(){
+return y + size;
+}
 
-	method void moveLeft(){
-		if( x > 1) {
-		do Screen.setColor(false);
-		do Screen.drawRectangle((x + size), y, x + size, y + size);
-		let x = x - 1;
-		do Screen.setColor(true);
-		do Screen.drawRectangle(x,y,x+ size, y + size);
-		}
-		return;
-	}
-	method void moveRight(){
-		if( (x + size) < 510) {
-		do Screen.setColor(false);
-		do Screen.drawRectangle(x -1, y, x + 1, y + size);
-		let x = x + 1;
-		do Screen.setColor(true);
-		do Screen.drawRectangle((x + size) -1 ,y,x+ size, y + size);
-		}
-		return;
-	}
+method void draw(){
+do Screen.setColor(true);
+do Screen.drawRectangle(x, y, x + size, y + size);
+return;
+}
 
-	method void quickMove(int location){
-		let x = location;
-		//do draw();
-		return;
-	}
-	}
+method void quickMove(int location){
+let x = location;
+//do draw();
+return;
+}
+}
 

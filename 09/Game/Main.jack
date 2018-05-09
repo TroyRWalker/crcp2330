@@ -1,8 +1,9 @@
+
 class Main {
-   function void main() {
-   		var Cascade game;
-   		let game = Cascade.new();
-   		do game.run();
-      return;
-   }
+function void main() {
+var Cascade game;
+let game = Cascade.new();
+do game.run();
+return;
+}
 }
