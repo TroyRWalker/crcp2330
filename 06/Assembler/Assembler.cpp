@@ -1,3 +1,5 @@
+//everything is read correctly, I just ran out of time to make a 
+//table to convert the command into the correct binary number
 #include <iostream>
 #include <fstream>
 #include <string>
