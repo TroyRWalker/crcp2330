@@ -1,12 +1,12 @@
 class Rain{
-	static int speed;
-	field int x, y;
+	//static int speed;
+	field int x, y, speed;
 	field int size;
 	
 	
 
-	constructor Rain new(int pX, int pY, int pSize){
-	let speed = speed;
+	constructor Rain new(int pX, int pY, int pSpeed, int pSize){
+	let speed = pSpeed;
 	let x = pX;
 	let y = pY;
 	let size = pSize;
@@ -41,7 +41,7 @@ class Rain{
 	method void falling(){
 		if ((y + size) < 254) {
          do Screen.setColor(false);
-         do Screen.drawRectangle(x, y, x + size, y + 1);
+         do Screen.drawRectangle(x, y, x + size, y + speed);
          let y = y + speed;
          do Screen.setColor(true);
          do Screen.drawRectangle(x, (y + size) - 1, x + size, y + size);

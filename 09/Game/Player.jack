@@ -7,7 +7,7 @@ class Player {
 	let x = pX;
 	let y = pY;
 	let size = pSize;
-	do draw();
+	//do draw();
 	return this;
 	}
 
@@ -49,6 +49,12 @@ class Player {
 		do Screen.setColor(true);
 		do Screen.drawRectangle((x + size) -1 ,y,x+ size, y + size);
 		}
+		return;
+	}
+
+	method void quickMove(int location){
+		let x = location;
+		//do draw();
 		return;
 	}
 	}

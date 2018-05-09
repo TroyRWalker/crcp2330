@@ -1,15 +1,15 @@
 function Rain.new 0
-push constant 3
+push constant 4
 call Memory.alloc 1
 pop pointer 0
-push static 0
-pop static 0
+push argument 2
+pop this 2
 push argument 0
 pop this 0
 push argument 1
 pop this 1
-push argument 2
-pop this 2
+push argument 3
+pop this 3
 push pointer 0
 call Rain.draw 1
 pop temp 0
@@ -19,7 +19,7 @@ function Rain.setSpeed 0
 push argument 0
 pop pointer 0
 push constant 1
-pop static 0
+pop this 2
 push constant 0
 return
 function Rain.getLX 0
@@ -31,7 +31,7 @@ function Rain.getRX 0
 push argument 0
 pop pointer 0
 push this 0
-push this 2
+push this 3
 add
 return
 function Rain.getTY 0
@@ -43,7 +43,7 @@ function Rain.getBY 0
 push argument 0
 pop pointer 0
 push this 1
-push this 2
+push this 3
 add
 return
 function Rain.draw 0
@@ -56,10 +56,10 @@ pop temp 0
 push this 0
 push this 1
 push this 0
-push this 2
+push this 3
 add
 push this 1
-push this 2
+push this 3
 add
 call Screen.drawRectangle 4
 pop temp 0
@@ -69,7 +69,7 @@ function Rain.falling 0
 push argument 0
 pop pointer 0
 push this 1
-push this 2
+push this 3
 add
 push constant 254
 lt
@@ -82,15 +82,15 @@ pop temp 0
 push this 0
 push this 1
 push this 0
-push this 2
+push this 3
 add
 push this 1
-push constant 1
+push this 2
 add
 call Screen.drawRectangle 4
 pop temp 0
 push this 1
-push static 0
+push this 2
 add
 pop this 1
 push constant 0
@@ -99,15 +99,15 @@ call Screen.setColor 1
 pop temp 0
 push this 0
 push this 1
-push this 2
+push this 3
 add
 push constant 1
 sub
 push this 0
-push this 2
+push this 3
 add
 push this 1
-push this 2
+push this 3
 add
 call Screen.drawRectangle 4
 pop temp 0
@@ -123,10 +123,10 @@ pop temp 0
 push this 0
 push this 1
 push this 0
-push this 2
+push this 3
 add
 push this 1
-push this 2
+push this 3
 add
 call Screen.drawRectangle 4
 pop temp 0
